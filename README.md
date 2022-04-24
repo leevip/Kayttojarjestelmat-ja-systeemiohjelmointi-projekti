@@ -77,3 +77,22 @@ my-unzip can be run with
 Development
 ---------
 my-zip uses for loop to allow input of multiple files. my-zip counts the time a character is read in a while loop and writes the counter and character to output. my-unzip reads the counter and character from the file and uses for loop to write the character to output.
+
+Project 3
+=====
+This is not complete and does not have all functionalities, but it works and has some simple functionalities. 
+
+# Unix Shell
+
+Instructions
+-----------
+
+The program can be run with
+./wish
+./wish file
+
+Currently the shell can run commands cd and exit as well as basic functionalities with no arguments such as ls, but cannot run commands with arguments other than cd.
+
+Other
+-----
+Currently this shell does not have many functionalities or error handling.
