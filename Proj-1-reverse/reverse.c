@@ -51,17 +51,18 @@ int main(int argc, char *argv[]) {
 	
 	if (argc == 1) {	//Deciding input, if no input file is given input will be stdin
 		file = stdin;
-	} else {					//Error handling if input and output is same 
-		if (strcmp(argv[1],argv[2]) == 0){	//file as this was given as a requirement.
-			fprintf(stderr, "Input and output file must differ\n");
-			exit(1);
+	} else {					//Error handling if input and output is same file as this was given as a requirement.
+		if(argc > 2){
+			if (strcmp(argv[1],argv[2]) == 0){	
+				fprintf(stderr, "Input and output file must differ\n");
+				exit(1);
+			}
 		}
 		if((file = fopen(argv[1], "r")) == NULL) {
 			fprintf(stderr, "error: cannot open file '%s'\n", argv[1]);
 			exit(1);
 		}
 	}	
-	
 	while((read = getline(&newLine, &len, file))!= -1) { 
 									//Reading the line and appending
 		if ((pNew = (LINE*)malloc(sizeof(LINE))) == NULL){	//the linked list is done here
@@ -79,6 +80,7 @@ int main(int argc, char *argv[]) {
 			pEnd->pNext = pNew;
 			pEnd = pNew;
 		}
+		
 		
 		if (argc == 1 && read == 1){
 			break;
@@ -102,7 +104,7 @@ int main(int argc, char *argv[]) {
 		}
 	}
 	
-	if (argc == 3) {		//If output file is given write the results to the given file
+	if (argc > 2) {		//If output file is given write the results to the given file
 		writeLines(argv[2], pEnd, pStart);
 	}
 	
