@@ -89,7 +89,7 @@ Instructions
 
 The program can be run with
 ./wish
-./wish file
+./wish [file]
 
 Currently the shell can run commands cd and exit as well as basic functionalities with no arguments such as ls, but cannot run commands with arguments other than cd.
 
